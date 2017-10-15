@@ -2,15 +2,14 @@ module DeviseSecurity
   module Generators
     # Generator for Rails to create or append to a Devise initializer.
     class InstallGenerator < Rails::Generators::Base
-      LOCALES = %w[ en de it ]
+      LOCALES = %w[en de it].freeze
 
       source_root File.expand_path('../../templates', __FILE__)
       desc 'Install the devise security extension'
 
       def copy_initializer
         template('devise-security.rb',
-                 'config/initializers/devise-security.rb',
-        )
+                 'config/initializers/devise-security.rb')
       end
 
       def copy_locales

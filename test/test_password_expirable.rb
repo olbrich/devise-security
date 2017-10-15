@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TestPasswordArchivable < ActiveSupport::TestCase
   setup do
-    Devise.expire_password_after = 2.month
+    Devise.expire_password_after = 2.months
   end
 
   teardown do
@@ -13,7 +13,7 @@ class TestPasswordArchivable < ActiveSupport::TestCase
     user = User.create password: 'password1', password_confirmation: 'password1'
     refute user.need_change_password?
 
-    user.update(password_changed_at: Time.now.ago(3.month))
+    user.update(password_changed_at: Time.now.ago(3.months))
     assert user.need_change_password?
   end
 
@@ -21,12 +21,12 @@ class TestPasswordArchivable < ActiveSupport::TestCase
     user = User.new password: 'password1', password_confirmation: 'password1'
     user.instance_eval do
       def expire_password_after
-        4.month
+        4.months
       end
     end
-    user.password_changed_at = Time.now.ago(3.month)
+    user.password_changed_at = Time.now.ago(3.months)
     refute user.need_change_password?
-    user.password_changed_at = Time.now.ago(5.month)
+    user.password_changed_at = Time.now.ago(5.months)
     assert user.need_change_password?
   end
 end

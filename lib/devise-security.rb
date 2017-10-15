@@ -5,7 +5,6 @@ require 'active_support/concern'
 require 'devise'
 
 module Devise
-
   # Should the password expire (e.g 3.months)
   mattr_accessor :expire_password_after
   @@expire_password_after = 3.months

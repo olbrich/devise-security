@@ -22,7 +22,7 @@ class TestParanoidVerification < ActiveSupport::TestCase
     assert_equal(0, user.paranoid_verification_attempt)
   end
 
-  test "generate code must reset attempt counter" do
+  test 'generate code must reset attempt counter' do
     user = User.new
     user.generate_paranoid_code
     # default generator generates 5 char string
@@ -91,7 +91,6 @@ class TestParanoidVerification < ActiveSupport::TestCase
 
     Devise.paranoid_code_regenerate_after_attempt = original_regenerate
   end
-
 
   test 'by default paranoid code regenerate should have 10 attempts' do
     user = User.new(paranoid_verification_code: 'abcde')
