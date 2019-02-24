@@ -1,9 +1,9 @@
 language: ruby
 before_install:
   - gem install bundler -v '1.17.3'
-  - mkdir rmagick
+  - mkdir rmagick && cd rmagick
   - gem unpack rmagick
-  - IMAGEMAGICK_VERSION=6.8.9-10 rmagick/before_install_linux.sh
+  - IMAGEMAGICK_VERSION=6.8.9-10 ./before_install_linux.sh
 install: bundle _1.17.3_ install --jobs=3 --retry=3
 script: bundle exec rake
 rvm:
