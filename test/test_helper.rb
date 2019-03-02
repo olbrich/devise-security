@@ -7,6 +7,8 @@ SimpleCov.start do
   add_filter 'gemfiles'
   add_group 'Tests', 'test'
   add_group 'Password Expirable', "password_expirable"
+  add_group 'Active Record', 'active_record'
+  add_group 'Mongoid', 'mongoid'
 end
 
 if ENV['CI']
